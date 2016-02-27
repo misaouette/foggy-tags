@@ -10,6 +10,7 @@
     "browser-sync": "^2.11.1",
     "browserify": "^12.0.2",
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
     "gulp-html-replace": "^1.5.5",
     "gulp-util": "^3.0.7",
     "jasmine-core": "^2.4.1",
@@ -35,6 +36,7 @@
   },
   "dependencies": {
     "jasmine": "^2.4.1",
+    "jquery": "^2.2.1",
     "karma": "^0.13.21",
     "karma-jasmine": "^0.3.7"
   }

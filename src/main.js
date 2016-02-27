@@ -2,10 +2,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import TagCloudBox from './components/TagCloudBox'
+
 ReactDOM.render(
-	<h1>Hello, world!</h1>,
+	<TagCloudBox source="data/topics.json"/>,
 	document.getElementById('tagcloud')
 	);
 	
-
-	console.log(17)

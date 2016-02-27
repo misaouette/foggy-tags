@@ -7,7 +7,8 @@ gulp.task('server:dev', () => {
   browserSync.init([
     config.dev.css + '/**/*.css',
     config.dev.js + '/**/*.js',
-    config.dev.dir + '/**/*.html'
+    config.dev.dir + '/**/*.html',
+    config.dev.data + '/**/*.json'
   ], {
     notify: false,
     server: {
@@ -24,7 +25,8 @@ gulp.task('server:dist', () => {
   browserSync.init([
     config.dist.css + '/**/*.css',
     config.dist.js + '/**/*.js',
-    config.dist.dir + '/**/*.html'
+    config.dist.dir + '/**/*.html',
+    config.dist.data + '/**/*.json'
   ], {
     notify: false,
     server: {

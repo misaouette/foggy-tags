@@ -8,6 +8,22 @@ export default {
   },
 
   path: {
+    third: {
+      dev: {
+        js: {
+          files: [
+          'node_modules/jquery/dist/jquery.js'
+          ]
+        }
+      },
+      dist: {
+        js: {
+          files: [
+          'node_modules/jquery/dist/jquery.min.js'
+          ]
+        }
+      }
+    },
     js: {
       files: 'src/**/*.js',
       entry: 'src/main.js'
@@ -18,6 +34,9 @@ export default {
     html: {
       files: 'index.html'
     },
+    data: {
+      files: 'data/**/*.json'
+    },
     tests: {
       files: 'karma.conf.js'
     }
@@ -27,19 +46,20 @@ export default {
     dir: 'dev',
     js: 'dev/js',
     css: 'dev/css',
-    html: 'dev'
+    html: 'dev',
+    data: 'dev/data'
   },
 
   dist: {
     dir: 'dist',
     js: 'dist/js',
     css: 'dist/css',
-    html: 'dist'
+    html: 'dist',
+    data: 'dist/data'
   },
 
   htmlReplace: {
-    'jsheader': [],
-    'js': ['js/bundle.js'],
+    'js': ['js/jquery.min.js'],
     'css': 'css/bundle.css'
   },
 
