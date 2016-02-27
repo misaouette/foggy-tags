@@ -9,14 +9,14 @@ var TopicDetailsBox = React.createClass({
 
 		if (topic === null) { return (<div/>); }
         
-        return (<div className="topic-details-box" >
+        return (<div id="topic-details-box" >
                  <div> Information on topic "{topic.label}" </div>
                  <br/>
                  <div> Total Mentions: {topic.volume} </div> 
                  <br/>
-                 <div> Positive Mentions: <span className="positive-text"> {topic.sentiment.positive} </span></div>
-                 <div> Neutral Mentions: <span className="neutral-text"> {topic.sentiment.neutral} </span></div>
-                 <div> Negative Mentions: <span className="negative-text"> {topic.sentiment.negatve} </span></div>
+                 <div> Positive Mentions: <span className="positive-text"> {topic.sentiment.positive|0} </span></div>
+                 <div> Neutral Mentions: <span className="neutral-text"> {topic.sentiment.neutral|0} </span></div>
+                 <div> Negative Mentions: <span className="negative-text"> {topic.sentiment.negative|0} </span></div>
                </div>);
     }     
 });
