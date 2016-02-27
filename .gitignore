@@ -1,0 +1,54 @@
+build
+dev
+dist
+node_modules
+bower_components
+
+
+# Created by .ignore support plugin (hsz.mobi)
+### OSX template
+.DS_Store
+.AppleDouble
+.LSOverride
+
+
+### SublimeText template
+# workspace files are user-specific
+*.sublime-workspace
+*.sublime-project
+
+# project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText
+# *.sublime-project
+
+### Node template
+# Logs
+logs
+*.log
+
+
+### JetBrains template
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+
+*.iml
+
+## Directory-based project format:
+.idea/
+# if you remove the above rule, at least ignore the following:
+
+# User-specific stuff:
+# .idea/workspace.xml
+# .idea/tasks.xml
+# .idea/dictionaries
+
+# Sensitive or high-churn files:
+# .idea/dataSources.ids
+# .idea/dataSources.xml
+# .idea/sqlDataSources.xml
+# .idea/dynamic.xml
+# .idea/uiDesigner.xml
+
+# Gradle:
+# .idea/gradle.xml
+# .idea/libraries
+

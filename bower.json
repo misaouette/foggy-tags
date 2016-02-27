@@ -1,0 +1,22 @@
+{
+  "name": "foggy-tags",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Claire Mouton"
+  ],
+  "license": "None",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "^0.14.7"
+  }
+}
