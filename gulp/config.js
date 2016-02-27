@@ -8,14 +8,6 @@ export default {
   },
 
   path: {
-    third: {
-      js: {
-        files: [
-        'bower_components/react/react.js', 
-        'bower_components/react/react-dom.js'
-        ]
-      }
-    },
     js: {
       files: 'src/**/*.js',
       entry: 'src/main.js'

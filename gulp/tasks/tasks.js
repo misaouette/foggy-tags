@@ -4,7 +4,7 @@ import run from 'run-sequence';
 import config from '../config';
 
 gulp.task('dev', () => {
-	run('clean:dev', ['html:dev', 'js:dev', 'css:dev'], 'server:dev');
+	run('clean:dev', ['html:dev', 'js:dev', 'css:dev'], 'server:dev', 'test:dev');
 	gulp.watch(config.path.css.files, ['css:dev']);
 	gulp.watch(config.path.js.files, ['js:dev']);
 });
