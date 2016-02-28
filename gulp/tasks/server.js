@@ -33,7 +33,7 @@ gulp.task('server:dist', () => {
       baseDir: [config.dist.dir]
     },
     port: config.port.dist,
-    browser: [],
+    browser: ['google-chrome'],
     tunnel: false
   });
 });

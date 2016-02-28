@@ -3,10 +3,10 @@ import rimraf from 'rimraf';
 
 import config from '../config';
 
-gulp.task('clean:dev', () => {
-  rimraf(config.dev.dir, config.handleError);
+gulp.task('clean:dev', cb => {
+  rimraf(config.dev.dir, cb);
 });
 
-gulp.task('clean:dist', () => {
-  rimraf(config.dist.dir, config.handleError);
+gulp.task('clean:dist', cb => {
+  rimraf(config.dist.dir, cb);
 });
