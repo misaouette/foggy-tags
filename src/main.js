@@ -1,11 +1,11 @@
 // main.js
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import TagCloudBox from './components/TagCloudBox'
+import TopicCloudPage from './components/TopicCloudPage';
 
 ReactDOM.render(
-	<TagCloudBox source="data/topics.json"/>,
-	document.getElementById('tagcloud')
+	<TopicCloudPage source="data/topics.json"/>,
+	document.getElementById('main')
 	);
 	
