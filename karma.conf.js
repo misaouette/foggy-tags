@@ -16,7 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
     'src/components/**/*.js',
-    'test/**/*.js'
+    'data/**/*.js'
     ],
 
 
@@ -39,7 +39,10 @@ module.exports = function(config) {
 
     browserify: {
       debug: true,
-      transform: [ ['babelify', {presets: ["es2015", "react"]} ]]
+      transform: [ ['babelify', {presets: ["es2015", "react"]} ]],
+      configure: function(bundle) {
+        bundle.exclude('react/lib/ReactContext');
+      }
     },
 
     // test results reporter to use
@@ -67,7 +70,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: [],
 
 
     // Continuous Integration mode
@@ -77,5 +80,5 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
-})
-}
+});
+};

@@ -9,15 +9,19 @@ gulp.task('server:dev', () => {
     config.dev.js + '/**/*.js',
     config.dev.dir + '/**/*.html',
     config.dev.data + '/**/*.json'
-  ], {
-    notify: false,
-    server: {
-      baseDir: [config.dev.dir]
-    },
-    port: config.port.dev,
-    browser: [],
-    tunnel: false
-  });
+    ], {
+      notify: false,
+      server: {
+        baseDir: [config.dev.dir]
+      },
+      port: config.port.dev,
+      browser: [],
+      tunnel: false
+    });
+
+  gulp.watch(config.path.css.files, ['css:dev']);
+  gulp.watch(config.path.js.files, ['js:dev']);
+  gulp.watch(config.path.html.files, ['html:dev']);
 });
 
 
@@ -27,13 +31,13 @@ gulp.task('server:dist', () => {
     config.dist.js + '/**/*.js',
     config.dist.dir + '/**/*.html',
     config.dist.data + '/**/*.json'
-  ], {
-    notify: false,
-    server: {
-      baseDir: [config.dist.dir]
-    },
-    port: config.port.dist,
-    browser: ['google-chrome'],
-    tunnel: false
-  });
+    ], {
+      notify: false,
+      server: {
+        baseDir: [config.dist.dir]
+      },
+      port: config.port.dist,
+      browser: ['google-chrome'],
+      tunnel: false
+    });
 });

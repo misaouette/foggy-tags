@@ -25,7 +25,7 @@ export default {
       }
     },
     js: {
-      files: 'src/**/*.js',
+      files: [['src/**/*.js','!src/**/*test.js']], //filter out test files
       entry: 'src/main.js'
     },
     css: {
@@ -59,8 +59,7 @@ export default {
   },
 
   htmlReplace: {
-    'js': ['js/jquery.min.js'],
-    'css': 'css/bundle.css'
+    'js': ['js/jquery.min.js']
   },
 
   handleError: gutil.log

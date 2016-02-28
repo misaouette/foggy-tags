@@ -5,6 +5,7 @@ import config from '../config';
 
 gulp.task('css:dev', () => {
 	return gulp.src(config.path.css.files)
+	.pipe(concat('bundle.css'))
 	.pipe(gulp.dest(config.dev.css))
 	.on('error', config.handleError);
 });
