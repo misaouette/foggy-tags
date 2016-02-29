@@ -6,7 +6,7 @@ import React from 'react';
 var TagCloud = React.createClass({
 	propTypes: {
 		topics: React.PropTypes.array.isRequired,
-		onTagClick: React.PropTypes.fun
+		onTagClick: React.PropTypes.func
 	},
 	getDefaultProps: function() {
 		return {
@@ -58,7 +58,7 @@ var Tag = React.createClass({
 		label: React.PropTypes.string.isRequired,
 		volumeClass: React.PropTypes.string.isRequired,
 		sentimentClass: React.PropTypes.string.isRequired,
-		onTagClick: React.PropTypes.fun
+		onTagClick: React.PropTypes.func
 	},
 	getDefaultProps: function() {
 		return {
@@ -69,7 +69,6 @@ var Tag = React.createClass({
 		};
 	},
 	render() {
-		console.log('Tag in cloud:' + this.props);
 		return ( <div className={`tag-in-cloud ${this.props.volumeClass} ${this.props.sentimentClass}`}
 			onClick={ () => { this.props.onTagClick(this.props.label); } }> 
 			{this.props.label} 

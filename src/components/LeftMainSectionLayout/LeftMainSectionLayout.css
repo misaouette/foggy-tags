@@ -1,20 +1,20 @@
 /* General Layout */
 
-#page-container {
+.page-container {
 	font: Arial, Verdana;
 	margin: 0 5% 0 5%;
 }
-header {
+.page-header {
 	margin-bottom: 50px;
 }
-#content-container {
+.content-container {
 	margin: 0 5% 0 5%;
 }
-#left-container {
+.left-container {
 	float:left;
 	width:70%;
 }
-#right-container {
+.right-container {
 	float:right;
 	width:30%;
 }

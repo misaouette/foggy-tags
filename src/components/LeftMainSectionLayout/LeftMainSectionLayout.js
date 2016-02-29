@@ -3,27 +3,26 @@ import Title from '../Title';
 
 'use strict';
 
-var LeftMainSectionLayout = React.createClass({
-	propTypes: {
-		title: React.PropTypes.string.isRequired/*,
-		leftComponent: React.PropTypes.element,
-		rightComponent: React.PropTypes.element*/
-	},
-	render: function() {
-		return (<div id="page-container">
-			<header>
-			<Title title={this.props.title} />
-			</header>
-			<div id="content-container">
-			<div id="left-container">
-			{this.props.leftComponent}
-			</div>
-			<div id="right-container">
-			{this.props.rightComponent}
-			</div>
-			</div>
-			</div>);
-	}     
-});
+const LeftMainSectionLayout = (props) => {
+	return (<div className="page-container">
+		<header className="page-header">
+		<Title title={props.title} />
+		</header>
+		<div className="content-container">
+		<div className="left-container">
+		{props.leftComponent}
+		</div>
+		<div className="right-container">
+		{props.rightComponent}
+		</div>
+		</div>
+		</div>);
+};
+
+LeftMainSectionLayout.propTypes = {
+	title: React.PropTypes.string.isRequired,
+	leftComponent: React.PropTypes.element,
+	rightComponent: React.PropTypes.element
+};
 
 export default LeftMainSectionLayout;

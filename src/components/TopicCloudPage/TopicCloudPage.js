@@ -8,6 +8,9 @@ import TopicDetailsBox from '../TopicDetailsBox';
 'use strict';
 
 var TopicCloudPage = React.createClass({
+
+	propTypes: { source: React.PropTypes.string.isRequired },
+
 	getInitialState: function() {
 		return {
 			topics: [],
