@@ -4,6 +4,8 @@ FoggyTags is my implementation of the Challenge.
 
 ## Instructions
 
+npm, gulp and browserify should be installed before running any further command.
+
 ### Run the production version:
 
 1. Install node packages ``$ npm install``
@@ -22,8 +24,8 @@ Both local server and test server should be launched. Visit `http://localhost:80
 
 
 ## Notes
-###Libraries
-UI Framework/libs: React/JSX/ES6
+### Third-party Libraries
+UI Framework/libs: React/JSX/ES6 + D3.js
 
 Test framework: karma/jasmine
 

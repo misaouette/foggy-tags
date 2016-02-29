@@ -25,7 +25,7 @@ describe('TopicCloudPage', () => {
 	});
 
 	it("renders a TagCloud component", () => {		
-		const componentTree = tree.dive(['LeftMainSectionLayout','TagCloud']);
+		const componentTree = tree.dive(['LeftMainSectionLayout','TagCloudContainer','TagCloud']);
 		const isTagCloudComponent = ReactTestUtils.isCompositeComponentWithType(
 			componentTree.getMountedInstance(),
 			TagCloud

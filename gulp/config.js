@@ -8,22 +8,6 @@ export default {
   },
 
   path: {
-    third: {
-      dev: {
-        js: {
-          files: [
-          'node_modules/jquery/dist/jquery.js'
-          ]
-        }
-      },
-      dist: {
-        js: {
-          files: [
-          'node_modules/jquery/dist/jquery.min.js'
-          ]
-        }
-      }
-    },
     js: {
       files: [['src/**/*.js','!src/**/*test.js']], //filter out test files
       entry: 'src/main.js'

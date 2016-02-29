@@ -1,8 +1,9 @@
 /* jshint esversion: 6 */
 
 import React from 'react';
+import d3 from 'd3';
 import LeftMainSectionLayout from '../LeftMainSectionLayout';
-import TagCloud from '../TagCloud';
+import TagCloudContainer from '../TagCloudContainer';
 import TopicDetailsBox from '../TopicDetailsBox';
 
 'use strict';
@@ -14,16 +15,23 @@ var TopicCloudPage = React.createClass({
 	getInitialState: function() {
 		return {
 			topics: [],
+			topicsHaveUpdated: false,
 			selectedTopicLabel: null
 		};
 	},
 
-	componentDidMount: function() {
-		this.serverRequest = $.get(this.props.source, function (result) {
+	__fetchData: function() {
+		this.serverRequest = d3.json(this.props.source, function(error, result) {
 			this.setState({
-				topics: result.topics
+				topics: result.topics,
+				topicsHaveUpdated: true
 			});
 		}.bind(this));
+
+	},
+
+	componentDidMount: function() {
+		this.__fetchData();	
 	},
 
 	componentWillUnmount: function() {
@@ -32,14 +40,16 @@ var TopicCloudPage = React.createClass({
 
 	changeTopicSelectionOnClick: function(selectedTopicLabel) {
 		this.setState({
-			selectedTopicLabel: selectedTopicLabel
+			selectedTopicLabel: selectedTopicLabel,
+			topicsHaveUpdated: false
 		});
 	},
 
 	render: function() {
-		const tagCloud = React.createElement(TagCloud, {
+		const tagCloudContainer = React.createElement(TagCloudContainer, {
 			topics: this.state.topics,
-			onTagClick: this.changeTopicSelectionOnClick
+			onTagClick: this.changeTopicSelectionOnClick,
+			topicsHaveUpdated: this.state.topicsHaveUpdated
 		});
 		
 		let selectedTopic = null;
@@ -53,7 +63,7 @@ var TopicCloudPage = React.createClass({
 		});
 
 		return (<LeftMainSectionLayout title="My Topics Challenge"
-			leftComponent={tagCloud}
+			leftComponent={tagCloudContainer}
 			rightComponent={topicDetailsBox} />);
 	}     
 });

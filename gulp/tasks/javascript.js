@@ -9,11 +9,7 @@ import config from '../config';
 
 
 gulp.task('js:dev', () => {
-  const thirdjs = gulp.src(config.path.third.dev.js.files)
-  .pipe(gulp.dest(config.dev.js))
-  .on('error', config.handleError);
-
-  const js = browserify({
+  return browserify({
     entries: config.path.js.entry,
     debug: true
   })
@@ -25,16 +21,11 @@ gulp.task('js:dev', () => {
   })
   .pipe(source('bundle.js')) //bundle js name
   .pipe(gulp.dest(config.dev.js));
-  return merge(thirdjs, js);
 });
 
 
 gulp.task('js:dist', () => {
-  const thirdjs = gulp.src(config.path.third.dist.js.files)
-  .pipe(gulp.dest(config.dist.js))
-  .on('error', config.handleError);
-
-  const js = browserify({
+  return browserify({
     entries: config.path.js.entry,
     debug: false
   })
@@ -49,5 +40,4 @@ gulp.task('js:dist', () => {
   .pipe(buffer()) // <----- convert from streaming to buffered vinyl file object
   .pipe(uglify()) // now gulp-uglify works 
   .pipe(gulp.dest(config.dist.js));
-  return merge(thirdjs, js);
 });
