@@ -19,6 +19,7 @@ describe('Tag', () => {
 			id:1,
 			label: 'London',
 			sentimentClass: 'neutral-text',
+			size: 24,
 			x: 0, 
 			y: 0, 
 			rotate: 0,

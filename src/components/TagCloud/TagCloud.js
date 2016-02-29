@@ -5,6 +5,7 @@ import cloud from 'd3-cloud';
 import Tag from './Tag';
 
 var TagCloud = React.createClass({
+	font: 'Arial',
 	propTypes: {
 		tags: React.PropTypes.array.isRequired,
 		onTagClick: React.PropTypes.func
@@ -20,9 +21,9 @@ var TagCloud = React.createClass({
 		var svgWidth = 700;
 		var svgHeight = 400; 
 		var layout = cloud().size([svgWidth, svgHeight])
-		.font('Arial')  //WARNING: needs to specify a font, otherwise memory leak!!!!
-		.rotate(0);
-		//.rotate(function() { return ~~(Math.random() * 2) * 90; });
+		.font(this.font);  //WARNING: needs to specify a font, otherwise memory leak!!!!
+//		.rotate(0)
+//		.rotate(function() { return ~~(Math.random() * 2) * 90; });
 
 		return {
 			svgWidth: svgWidth,
@@ -53,7 +54,9 @@ var TagCloud = React.createClass({
 	},
 
 	drawTags: function () {
+		var self = this;
 		return this.props.tags.map(function (tag, index) {
+			tag.font = self.font;
 			return (<Tag key={tag.key} {...tag} />);
 		});
 	},

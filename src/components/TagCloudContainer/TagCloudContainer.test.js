@@ -18,11 +18,11 @@ describe('TagCloudContainer', () => {
 
 
 	it("uses 6 different topic size for volume", () => {
-		const topicVolumeSizes = tagComponents.map(topic => topic.props.size)
-		.filter((volumeClass, index, self) => (self.indexOf(volumeClass) === index)); // keep unique values
+		const topicSizes = tagComponents.map(topic => topic.props.size)
+		.filter((size, index, self) => (self.indexOf(size) === index)); // keep unique values
 
-		expect(topicVolumeSizes).not.toContain(undefined);
-		expect(topicVolumeSizes.length).toEqual(6);
+		expect(topicSizes).not.toContain(undefined);
+		expect(topicSizes.length).toEqual(6);
 	});
 
 	it("render labels whose sentiment score > 60 with a positive css class", () => {

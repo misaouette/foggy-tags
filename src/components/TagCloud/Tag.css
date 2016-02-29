@@ -1,25 +1,4 @@
 /* Tag Cloud */
 .tag-in-cloud{
 	cursor: pointer;
-	font-family: "Impact";
-}
-
-/* Volume classes */
-.volume0 {
-	font-size: 12px;
-}
-.volume1 {
-	font-size: 18px;
-}
-.volume2 {
-	font-size: 24px;
-}
-.volume3 {
-	font-size: 30px;
-}
-.volume4 {
-	font-size: 36px;
-}
-.volume5 {
-	font-size: 42px;
 }

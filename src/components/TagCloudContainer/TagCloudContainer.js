@@ -18,18 +18,6 @@ var TagCloudContainer = React.createClass({
 		return nextProps.topicsHaveUpdated;
 	},
 
-	getVolumeClass: function(tagVolume, minVolume, categoryRange) {
-		let volumeClass = '';
-
-		for (let i = 0; i < 6; i+=1) {
-			if (tagVolume >= minVolume + i * categoryRange && tagVolume <= minVolume + (i+1)*categoryRange) {
-				volumeClass = 'volume' + i;
-				break;
-			}	
-		}
-		return volumeClass;
-	},
-
 	getSentimentClass: function(topic) {
 		const sentimentScore = topic.sentimentScore;
 		let sentimentClass = '';
@@ -45,19 +33,13 @@ var TagCloudContainer = React.createClass({
 	},
 
 	render: function() {
-
-		let maxVolume = Math.max.apply(Math, this.props.topics.map(topic => topic.volume));
-		let minVolume = Math.min.apply(Math, this.props.topics.map(topic => topic.volume)); 
-		let categoryRange = (maxVolume - minVolume)/6;
-
 		var tags = this.props.topics.map(topic => {
 			return {
 				id: topic.id,
 				label: topic.label,
 				sentimentClass: this.getSentimentClass(topic),
-				volumeClass: this.getVolumeClass(topic.volume, minVolume, categoryRange),
 				onTagClick: this.props.onTagClick,
-				size: Math.sqrt(topic.volume)
+				size: ~~Math.sqrt(topic.volume)*8
 			};
 		});
 		return (<TagCloud tags={tags}/>);
