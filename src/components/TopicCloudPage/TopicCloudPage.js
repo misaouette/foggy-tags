@@ -32,6 +32,7 @@ var TopicCloudPage = React.createClass({
 
 	componentDidMount: function() {
 		this.__fetchData();	
+		// we would probably initialise our web socket here if needed
 	},
 
 	componentWillUnmount: function() {

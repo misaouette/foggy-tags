@@ -23,8 +23,18 @@ Chrome should open in a few seconds on the application page. If not please visit
 Both local server and test server should be launched. Visit `http://localhost:8080/` to access the application.
 
 
-## Notes
-### Third-party Libraries
+
+
+## Room for improvement
+
+### Quality 
+This application could also benefit from Test coverage.
+
+### CSS
+The global component architecture could be improved by making use of Radium or CSS Modules that could be called from within the components. By attaching all styling locally, it would remove all chances of css classnames collision. CSS properties could also be passed through props when needed.
+
+
+## Third-party Libraries
 UI Framework/libs: React/JSX/ES6 + D3.js
 
 Test framework: karma/jasmine

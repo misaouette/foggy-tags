@@ -4,21 +4,22 @@ import React from 'react';
 
 var Tag = React.createClass({
 	propTypes: {
-		label: React.PropTypes.string.isRequired,
-		sentimentClass: React.PropTypes.string.isRequired,
-		size: React.PropTypes.number,
-		x: React.PropTypes.number, // computed by d3-cloud layout
-		y: React.PropTypes.number, // computed by d3-cloud layout
-		rotate: React.PropTypes.number,  // computed by d3-cloud layout
+		text: React.PropTypes.string.isRequired,
+		size: React.PropTypes.number.isRequired,
+		x: React.PropTypes.number.isRequired, // computed by d3-cloud layout
+		y: React.PropTypes.number.isRequired, // computed by d3-cloud layout
+		rotate: React.PropTypes.number.isRequired,  // computed by d3-cloud layout
+		className: React.PropTypes.string,
 		onTagClick: React.PropTypes.func		
 	},
 	getDefaultProps: function() {
 		return {
-			label: '',
-			sentimentClass: '',
-			x: 0,
-			y: 0,
-			rotate: 0,
+			text: null,
+			size: null,
+			x: null,
+			y: null,
+			rotate: null,
+			className: '',
 			onTagClick: () => {}
 		};
 	},

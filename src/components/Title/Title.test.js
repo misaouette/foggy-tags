@@ -18,6 +18,9 @@ describe('Title', () => {
 	it("renders a h1", () => {
 		const titleTree = tree.everySubTree('h1');
 		expect(titleTree.length).toEqual(1);
-		expect(titleTree[0].text()).toEqual(title);
+	});
+
+	it('renders the given title', () => {
+		expect(tree.text()).toEqual(title);
 	});
 });
