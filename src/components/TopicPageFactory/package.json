@@ -1,0 +1,6 @@
+{
+  "name": "TopicPageFactory",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./TopicPageFactory.js"
+}

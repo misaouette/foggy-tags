@@ -1,0 +1,22 @@
+/* General Layout */
+
+.page-container {
+	font: Arial, Verdana;
+	margin: 0 5% 0 5%;
+}
+.content-container {
+	margin: 0 2% 0 2%;
+}
+.left-container {
+	float:left;
+	width:70%;
+}
+.right-container {
+	float:right;
+	width:30%;
+	transform: translateY(50%);
+}
+
+.right-container > div {
+	transform: translateY(50%);
+}

@@ -1,0 +1,12 @@
+.positive-text {
+	color: springgreen;
+	fill: springgreen;
+}
+.neutral-text {
+	color: grey;
+	fill: grey;
+}
+.negative-text {
+	color: tomato;
+	fill: tomato;
+}
