@@ -4,6 +4,8 @@ import Title from '../Title';
 'use strict';
 
 const LeftMainSectionLayout = (props) => {
+	//console.log('in LeftMainSectionLayout ');
+	
 	return (<div className="page-container">
 		<header>
 		<Title title={props.title} />

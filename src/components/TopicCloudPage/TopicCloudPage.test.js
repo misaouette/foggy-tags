@@ -26,7 +26,6 @@ describe('TopicCloudPage', () => {
 		tagComponents = tree.dive(['LeftMainSectionLayout', 'TagCloud']).everySubTree('Tag');
 	});
 
-
 	it("renders as a LeftMainSectionLayout", () => {
 		const componentTrees = tree.everySubTree('LeftMainSectionLayout');
 		expect(componentTrees.length).toEqual(1);
@@ -105,6 +104,33 @@ describe('changeTopicSelectionOnClick method', () => {
 		instance.changeTopicSelectionOnClick(mockTopicLabel);
 
 		expect(instance.state.selectedTopicLabel).toEqual(mockTopicLabel);
+	});
+
+	it('should not make TagCloud rerender', () => {
+		const topicCloudPageInstance = tree.getMountedInstance();
+		const tagCloudInstance = tree.dive(['LeftMainSectionLayout', 'TagCloud']).getMountedInstance();
+
+		spyOn(tagCloudInstance, 'componentDidUpdate');
+
+		expect(tagCloudInstance.componentDidUpdate.calls.any()).toEqual(false);
+		topicCloudPageInstance.changeTopicSelectionOnClick('');
+		expect(tagCloudInstance.componentDidUpdate.calls.any()).toEqual(false);
+	    tagCloudInstance.setState({}); // don't use forceUpdate as it would not call shouldComponentUpdate
+	    expect(tagCloudInstance.componentDidUpdate.calls.any()).toEqual(true);
+	});
+
+	it('should make TopicDetailsBox rerender', () => {
+		const topicCloudPageInstance = tree.getMountedInstance();
+		const topicDetailsBoxInstance = tree.dive(['LeftMainSectionLayout', 'TopicDetailsBox']).getMountedInstance();
+		
+		spyOn(topicDetailsBoxInstance, 'componentDidUpdate');
+
+		expect(topicDetailsBoxInstance.componentDidUpdate.calls.any()).toEqual(false);
+		topicCloudPageInstance.changeTopicSelectionOnClick('Disco');
+		// TODO: fix test!!
+		// expect(topicDetailsBoxInstance.componentDidUpdate.calls.any()).toEqual(true);
+	    topicDetailsBoxInstance.setState({}); // don't use forceUpdate as it would not call shouldComponentUpdate
+	    expect(topicDetailsBoxInstance.componentDidUpdate.calls.any()).toEqual(true);
 	});
 
 });

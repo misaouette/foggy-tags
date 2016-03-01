@@ -63,9 +63,11 @@ var TopicCloudPage = React.createClass({
 		let selectedTopic = null;
 		if (this.state.selectedTopicLabel !== null) {
 			selectedTopic = this.props.topics.filter(topic => {
+//				console.log('in render '+ topic.label);
 				return (topic.label === this.state.selectedTopicLabel);
 			}).shift();
 		};
+
 		const topicDetailsBox = React.createElement(TopicDetailsBox, {
 			topic: selectedTopic
 		});
