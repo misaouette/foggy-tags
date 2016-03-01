@@ -22,12 +22,13 @@ var Tag = React.createClass({
 		};
 	},
 	render() {
-		return ( <text className={`tag-in-cloud ${this.props.sentimentClass}`}
+		// Props x, y and rotate are computed by d3-cloud layout
+		return ( <text className={`tag-in-cloud ${this.props.className}`}
 			style={{ fontSize: this.props.size, fontFamily: this.props.font }}
 			textAnchor="middle"
 			transform={`translate(${this.props.x},${this.props.y})rotate(${this.props.rotate})`}
-			onClick={ () => { this.props.onTagClick(this.props.label); } }> 
-			{this.props.label} 
+			onClick={ () => { this.props.onTagClick(this.props.text); } }> 
+			{this.props.text} 
 			</text> );
 	}
 });

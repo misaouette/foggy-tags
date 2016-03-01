@@ -34,6 +34,8 @@ describe('Tag', () => {
 			ReactTestUtils.scryRenderedDOMComponentsWithClass(tagComponent, 'tag-in-cloud')[0]);
 
 		expect(mockObject.onTagClick).toHaveBeenCalledTimes(1);
+
+		expect(mockObject.onTagClick.calls.argsFor(0)).not.toEqual(undefined);
 	});
 });
 

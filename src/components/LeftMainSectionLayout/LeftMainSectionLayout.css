@@ -4,9 +4,6 @@
 	font: Arial, Verdana;
 	margin: 0 5% 0 5%;
 }
-.page-header {
-	margin-bottom: 50px;
-}
 .content-container {
 	margin: 0 2% 0 2%;
 }
@@ -17,4 +14,9 @@
 .right-container {
 	float:right;
 	width:30%;
+	transform: translateY(50%);
+}
+
+.right-container > div {
+	transform: translateY(50%);
 }

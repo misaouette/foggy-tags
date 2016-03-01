@@ -5,7 +5,7 @@ import Title from '../Title';
 
 const LeftMainSectionLayout = (props) => {
 	return (<div className="page-container">
-		<header className="page-header">
+		<header>
 		<Title title={props.title} />
 		</header>
 		<div className="content-container">

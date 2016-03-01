@@ -3,7 +3,7 @@
 import React from 'react';
 import d3 from 'd3';
 import LeftMainSectionLayout from '../LeftMainSectionLayout';
-import TagCloudContainer from '../TagCloudContainer';
+import TagCloud from '../TagCloud';
 import TopicDetailsBox from '../TopicDetailsBox';
 
 'use strict';
@@ -21,7 +21,11 @@ var TopicCloudPage = React.createClass({
 	},
 
 	__fetchData: function() {
+
+			console.log(this.props.source);
 		this.serverRequest = d3.json(this.props.source, function(error, result) {
+			console.log(this.props.source);
+			console.log(result.topics);
 			this.setState({
 				topics: result.topics,
 				topicsHaveUpdated: true
@@ -45,10 +49,30 @@ var TopicCloudPage = React.createClass({
 		});
 	},
 
+	__getSentimentClass: function(topic) {
+		const sentimentScore = topic.sentimentScore;
+		let sentimentClass = '';
+
+		if (sentimentScore > 60) {
+			sentimentClass = 'positive-text';
+		} else if (sentimentScore < 40) {
+			sentimentClass = 'negative-text';
+		} else {
+			sentimentClass = 'neutral-text';
+		}
+		return sentimentClass;
+	},
+
 	render: function() {
-		const tagCloudContainer = React.createElement(TagCloudContainer, {
-			topics: this.state.topics,
-			onTagClick: this.changeTopicSelectionOnClick,
+		const tagCloud = React.createElement(TagCloud, {
+			tags: this.state.topics.map(topic => {
+				return {
+					text: topic.label,
+					size: ~~Math.sqrt(topic.volume)*8,
+					className: this.__getSentimentClass(topic),
+					onTagClick: this.changeTopicSelectionOnClick
+				};
+			}),
 			topicsHaveUpdated: this.state.topicsHaveUpdated
 		});
 		
@@ -63,7 +87,7 @@ var TopicCloudPage = React.createClass({
 		});
 
 		return (<LeftMainSectionLayout title="My Topics Challenge"
-			leftComponent={tagCloudContainer}
+			leftComponent={tagCloud}
 			rightComponent={topicDetailsBox} />);
 	}     
 });
