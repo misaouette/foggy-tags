@@ -39,6 +39,7 @@ var TagCloudContainer = React.createClass({
 				label: topic.label,
 				sentimentClass: this.getSentimentClass(topic),
 				onTagClick: this.props.onTagClick,
+				text: topic.label,
 				size: ~~Math.sqrt(topic.volume)*8
 			};
 		});
