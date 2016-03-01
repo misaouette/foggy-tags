@@ -16,7 +16,7 @@ var TopicPageFactory = React.createClass({
 		};
 	},
 
-	componentDidMount: function() {
+	__fetchData: function () {
 		this.serverRequest = d3.json(this.props.source, function(error, result) {
 			this.setState({
 				topics: result.topics
@@ -24,13 +24,22 @@ var TopicPageFactory = React.createClass({
 		}.bind(this));
 	},
 
-	componentWillUnmount: function() {
-		this.serverRequest.abort();
-	},
+	componentDidMount: function() {		
+        this.__fetchData();
 
-	render: function () {
-		return React.createElement(this.props.reactComponent, {topics: this.state.topics});
-	}
+        // This would be where to initialise Web Socket if needed 
+        /* setInterval(function () {
+        	this.__fetchData();
+        }.bind(this), 5000); */
+    },
+
+    componentWillUnmount: function() {
+    	this.serverRequest.abort();
+    },
+
+    render: function () {
+    	return React.createElement(this.props.reactComponent, {topics: this.state.topics});
+    }
 });
 
 export default TopicPageFactory;

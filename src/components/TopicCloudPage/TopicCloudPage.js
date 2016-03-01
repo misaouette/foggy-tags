@@ -28,6 +28,7 @@ var TopicCloudPage = React.createClass({
 
 	componentWillReceiveProps: function(nextProps) {
 		this.setState({
+			selectedTopicLabel: null,
 			shouldTagCloudUpdate: true
 		});
 	},
