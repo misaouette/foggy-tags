@@ -4,12 +4,13 @@ import cloud from 'd3-cloud';
 import Tag from './Tag';
 
 var TagCloud = React.createClass({
+	displayName: 'TagCloud',
 	propTypes: {
 		tags: React.PropTypes.array.isRequired,
 		font: React.PropTypes.string,
 		svgWidth: React.PropTypes.number,
 		svgHeight: React.PropTypes.number,
-		tagsHaveUpdated: React.PropTypes.bool
+		shouldTagCloudUpdate: React.PropTypes.bool
 	},
 	getDefaultProps: function() {
 		return {
@@ -17,7 +18,7 @@ var TagCloud = React.createClass({
 			font: 'Arial',
 			svgWidth: 700,
 			svgHeight: 400,
-			tagsHaveUpdated: true
+			shouldTagCloudUpdate: true
 		};
 	},
 
@@ -26,7 +27,7 @@ var TagCloud = React.createClass({
     layout: null,
 
     shouldComponentUpdate: function(nextProps) {
-    	return nextProps.tagsHaveUpdated;
+    	return nextProps.shouldTagCloudUpdate;
     },
 
     __computeLayout: function(newtags) {

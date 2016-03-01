@@ -1,8 +1,10 @@
 'use strict';
 
 import React from 'react';
-import TagCloud from '.';
+import ReactTestUtils from 'react-addons-test-utils';
 import sd from 'skin-deep';
+
+import TagCloud from '.';
 
 
 describe('TagCloud', () => {
@@ -17,17 +19,22 @@ describe('TagCloud', () => {
 	}];
 	let tree, tagComponents;
 
-	beforeEach(() => {
-		tree = sd.shallowRender(React.createElement(TagCloud, {tags: tags}));
-		tagComponents = tree.everySubTree('Tag');		
-	});
+	beforeEach(() => {		
+//		tree = sd.shallowRender(React.createElement(TagCloud, {tags: tags}));
+//		tagComponents = tree.everySubTree('Tag');
+});
 
+	/* Testing structure */
 
 	it("renders all tag texts", () => {
+		tree = sd.shallowRender(React.createElement(TagCloud, {tags: tags}));
+		tagComponents = tree.everySubTree('Tag');
+
 		const texts = tags.map(tag => tag.text);
 		texts.forEach(text => {
 			expect(tagComponents.map(tag => tag.props.text)).toContain(text);
 		});
 	});
+
 });
 

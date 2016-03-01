@@ -16,16 +16,15 @@ describe('Tag', () => {
 		};
 
 		const tagComponent = ReactTestUtils.renderIntoDocument(React.createElement(Tag,{
-			id:1,
-			label: 'London',
-			sentimentClass: 'neutral-text',
+			text: 'London',
 			size: 24,
-			x: 0, 
-			y: 0, 
-			rotate: 0,
-			onTagClick:  () => {
-				mockObject.onTagClick();
-			}
+		    x: 0, // computed by d3-cloud layout
+		    y: 0, // computed by d3-cloud layout
+		    rotate: 0,  // computed by d3-cloud layout
+		    className: 'neutral-text',
+		    onTagClick:  () => {
+		    	mockObject.onTagClick();
+		    }
 		}));
 
 		spyOn(mockObject, 'onTagClick');

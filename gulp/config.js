@@ -9,7 +9,12 @@ export default {
 
   path: {
     js: {
-      files: [['src/**/*.js','!src/**/*test.js']], //filter out test files
+      //used by watch
+      files: [[
+      'src/**/*.js',
+      'src/**/*.json',
+      '!src/**/*test.js'
+      ]],  //filter out test files
       entry: 'src/main.js'
     },
     css: {

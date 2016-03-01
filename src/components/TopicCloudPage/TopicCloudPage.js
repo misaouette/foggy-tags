@@ -1,5 +1,3 @@
-/* jshint esversion: 6 */
-
 import React from 'react';
 import d3 from 'd3';
 import LeftMainSectionLayout from '../LeftMainSectionLayout';
@@ -10,39 +8,27 @@ import TopicDetailsBox from '../TopicDetailsBox';
 
 var TopicCloudPage = React.createClass({
 
-	propTypes: { source: React.PropTypes.string.isRequired },
+	propTypes: { 
+		topics: React.PropTypes.array.isRequired 
+	},
 
 	getInitialState: function() {
 		return {
-			topics: [],
-			tagsHaveUpdated: false,
-			selectedTopicLabel: null
+			selectedTopicLabel: null,
+			shouldTagCloudUpdate: true
 		};
-	},
-
-	__fetchData: function() {
-		this.serverRequest = d3.json(this.props.source, function(error, result) {
-			this.setState({
-				topics: result.topics,
-				tagsHaveUpdated: true
-			});
-		}.bind(this));
-
-	},
-
-	componentDidMount: function() {
-		this.__fetchData();	
-		// we would probably initialise our web socket here if needed
-	},
-
-	componentWillUnmount: function() {
-		this.serverRequest.abort();
 	},
 
 	changeTopicSelectionOnClick: function(selectedTopicLabel) {
 		this.setState({
 			selectedTopicLabel: selectedTopicLabel,
-			tagsHaveUpdated: false
+			shouldTagCloudUpdate: false
+		});
+	},
+
+	componentWillReceiveProps: function(nextProps) {
+		this.setState({
+			shouldTagCloudUpdate: true
 		});
 	},
 
@@ -62,7 +48,7 @@ var TopicCloudPage = React.createClass({
 
 	render: function() {
 		const tagCloud = React.createElement(TagCloud, {
-			tags: this.state.topics.map(topic => {
+			tags: this.props.topics.map(topic => {
 				return {
 					text: topic.label,
 					size: ~~Math.sqrt(topic.volume)*8,
@@ -70,12 +56,12 @@ var TopicCloudPage = React.createClass({
 					onTagClick: this.changeTopicSelectionOnClick
 				};
 			}),
-			tagsHaveUpdated: this.state.tagsHaveUpdated
+			shouldTagCloudUpdate: this.state.shouldTagCloudUpdate
 		});
 		
 		let selectedTopic = null;
 		if (this.state.selectedTopicLabel !== null) {
-			selectedTopic = this.state.topics.filter(topic => {
+			selectedTopic = this.props.topics.filter(topic => {
 				return (topic.label === this.state.selectedTopicLabel);
 			}).shift();
 		};

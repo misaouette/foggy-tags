@@ -16,5 +16,5 @@ Tag Cloud should respect the following rules:
 
 ## Props
 
-string source: http url where topics can be found in JSON format
+string topics: topics data to be visualised
 
