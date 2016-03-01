@@ -15,20 +15,16 @@ var TopicCloudPage = React.createClass({
 	getInitialState: function() {
 		return {
 			topics: [],
-			topicsHaveUpdated: false,
+			tagsHaveUpdated: false,
 			selectedTopicLabel: null
 		};
 	},
 
 	__fetchData: function() {
-
-			console.log(this.props.source);
 		this.serverRequest = d3.json(this.props.source, function(error, result) {
-			console.log(this.props.source);
-			console.log(result.topics);
 			this.setState({
 				topics: result.topics,
-				topicsHaveUpdated: true
+				tagsHaveUpdated: true
 			});
 		}.bind(this));
 
@@ -45,7 +41,7 @@ var TopicCloudPage = React.createClass({
 	changeTopicSelectionOnClick: function(selectedTopicLabel) {
 		this.setState({
 			selectedTopicLabel: selectedTopicLabel,
-			topicsHaveUpdated: false
+			tagsHaveUpdated: false
 		});
 	},
 
@@ -73,7 +69,7 @@ var TopicCloudPage = React.createClass({
 					onTagClick: this.changeTopicSelectionOnClick
 				};
 			}),
-			topicsHaveUpdated: this.state.topicsHaveUpdated
+			tagsHaveUpdated: this.state.tagsHaveUpdated
 		});
 		
 		let selectedTopic = null;

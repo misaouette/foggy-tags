@@ -8,14 +8,16 @@ var TagCloud = React.createClass({
 		tags: React.PropTypes.array.isRequired,
 		font: React.PropTypes.string,
 		svgWidth: React.PropTypes.number,
-		svgHeight: React.PropTypes.number
+		svgHeight: React.PropTypes.number,
+		tagsHaveUpdated: React.PropTypes.bool
 	},
 	getDefaultProps: function() {
 		return {
 			tags: [],
 			font: 'Arial',
 			svgWidth: 700,
-			svgHeight: 400
+			svgHeight: 400,
+			tagsHaveUpdated: false
 		};
 	},
 
